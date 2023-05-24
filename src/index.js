@@ -2,7 +2,21 @@ import './style.css';
 
 const contentDiv = document.getElementById('content');
 
-console.log("Hi I'm Tom.");
+//constructor function that builds an HTML element to be appended to something with some text content 
+function elementCreation(el, className, idName, content) {
+    this.el = el;
+    this.className = className;
+    this.idName = idName;
+    this.content = content;
+
+    const createEl = document.createElement(`${el}`);
+    createEl.textContent = content;
+    createEl.classList.add(`${className}`);
+    createEl.setAttribute("id", idName);
+
+    return createEl;
+
+}
 
 //generates a section container 
 const sectionElement = (() => {
@@ -19,19 +33,15 @@ const navMenu = (() => {
     navTag.classList.add('header-nav-container');
     sectionElement.appendChild(navTag);
 
-    const ul = document.createElement('ul');
-    ul.textContent = "This is an unordered List";
-    ul.classList.add('nav-menu-container');
-    navTag.appendChild(ul);
+    navTag.appendChild(new elementCreation("ul", "nav-menu-container", "navMenuContainer", "This is an unordered list"));
+    const ulListener = document.getElementById('navMenuContainer');
 
-    for (let i=0; i<4; i++) {
-        const li = document.createElement('li');
-        li.textContent = "This is a list Item";
-        li.classList.add('list-item');
-        ul.appendChild(li);
-    }
+    ulListener.appendChild(new elementCreation('li', "list-item", "listItem", "Home"));
+    ulListener.appendChild(new elementCreation('li', "list-item", "listItem", "Menu"));
+    ulListener.appendChild(new elementCreation('li', "list-item", "listItem", "About"));
+    ulListener.appendChild(new elementCreation('li', "list-item", "listItem", "Contact"));
 
-    return { navTag, ul }
+    return { navTag }
 })();
 
 //Generates a main content div
@@ -41,12 +51,11 @@ const mainContentContainer = (() => {
     mainContentDiv.classList.add('main-content-container');
     sectionElement.appendChild(mainContentDiv);
 
-    for (let i=0; i<2; i++) {
-        const divEl = document.createElement('div');
-        divEl.textContent = "This is a flex item/container";
-        divEl.classList.add('main-content-flex-container');
-        mainContentDiv.appendChild(divEl);
-    }
+
+    mainContentDiv.appendChild(new elementCreation("div", "main-content-flex-container", "mainContentFlexContainer", "This is a flex item/container"));
+    const flexContainerListener = document.getElementById("mainContentFlexContainer");
+    flexContainerListener.appendChild(new elementCreation("div", "main-content-flex-item", "mainContentFlexItem", "This is the first flex item"));
+    flexContainerListener.appendChild(new elementCreation("div", "main-content-flex-item", "mainContentFlexItem", "This is the second flex item"));
 
     return { mainContentDiv }
 })();
