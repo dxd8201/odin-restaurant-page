@@ -9,10 +9,17 @@ function elementCreation(el, className, idName, content) {
     this.idName = idName;
     this.content = content;
 
+    const imageReg = /[\/.](gif|jpg|jpeg|tiff|png)$/i;
+
     const createEl = document.createElement(`${el}`);
     createEl.textContent = content;
     createEl.classList.add(`${className}`);
     createEl.setAttribute("id", idName);
+
+    if (content.match(imageReg)) {
+        createEl.src = content;
+        createEl.alt = "This is an icon or image";
+    }
 
     return createEl;
 
@@ -29,11 +36,10 @@ const sectionElement = (() => {
 //this generates a nav menu
 const navMenu = (() => {
     const navTag = document.createElement('nav');
-    navTag.textContent = "This is a nav bar";
     navTag.classList.add('header-nav-container');
     sectionElement.appendChild(navTag);
 
-    navTag.appendChild(new elementCreation("ul", "nav-menu-container", "navMenuContainer", "This is an unordered list"));
+    navTag.appendChild(new elementCreation("ul", "nav-menu-container", "navMenuContainer", ""));
     const ulListener = document.getElementById('navMenuContainer');
 
     ulListener.appendChild(new elementCreation('li', "list-item", "listItem", "Home"));
@@ -47,12 +53,11 @@ const navMenu = (() => {
 //Generates a main content div
 const mainContentContainer = (() => {
     const mainContentDiv = document.createElement('div');
-    mainContentDiv.textContent = "This is the main Content Div";
     mainContentDiv.classList.add('main-content-container');
     sectionElement.appendChild(mainContentDiv);
 
 
-    mainContentDiv.appendChild(new elementCreation("div", "main-content-flex-container", "mainContentFlexContainer", "This is a flex item/container"));
+    mainContentDiv.appendChild(new elementCreation("div", "main-content-flex-container", "mainContentFlexContainer", ""));
     const flexContainerListener = document.getElementById("mainContentFlexContainer");
     flexContainerListener.appendChild(new elementCreation("div", "main-content-flex-item", "mainContentFlexItem", "This is the first flex item"));
     flexContainerListener.appendChild(new elementCreation("div", "main-content-flex-item", "mainContentFlexItem", "This is the second flex item"));
@@ -63,19 +68,13 @@ const mainContentContainer = (() => {
 //Generates a footer menu
 const footerMenu = (() => {
     const footerTag = document.createElement('footer');
-    footerTag.textContent = "This is a footer section";
     footerTag.classList.add('footer-container');
     sectionElement.appendChild(footerTag);
 
+    footerTag.appendChild(new elementCreation("img", "footer-icon", "footerIcon", "./media/github-mark.png"));
+    footerTag.appendChild(new elementCreation("div", "footer-icon", "footerIcon", "Twitter icon"));
+    footerTag.appendChild(new elementCreation("div", "footer-icon", "footerIcon", "Main rune page icon"));
+
     return
     
-})();
-
-//generates a container div
-const containerDiv = (() => {
-    const element = document.createElement('div');
-    element.textContent = "This is a normal Container Div";
-    element.classList.add('container');
-
-    return element
 })();
