@@ -1,0 +1,54 @@
+/* ======= */
+/* General */
+/* ======= */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* ====== */
+/* Header */
+/* ====== */
+
+.header-nav-container {
+    background-color: #aaa;
+}
+
+.nav-menu-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style-type: none;
+    padding: 1rem;
+}
+
+.list-item {
+    margin: 0 .5rem 0 0;
+}
+
+/* ============ */
+/* Main Content */
+/* ============ */
+
+.main-content-flex-container {
+    background-color: #ccc;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* ====== */
+/* Footer */
+/* ====== */
+
+.footer-container {
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.footer-icon {
+    margin: 0 .5rem;
+}
