@@ -51,4 +51,10 @@
 
 .footer-icon {
     margin: 0 .5rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+.footer-icon:hover {
+    cursor: pointer;
 }
