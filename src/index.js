@@ -1,4 +1,7 @@
 import './style.css';
+import gitHubIcon from './media/github-mark.png';
+import twitterIcon from './media/twitter-logo-blue.png';
+import wizardIcon from './media/wizard-icon.png';
 
 const contentDiv = document.getElementById('content');
 
@@ -9,6 +12,7 @@ function elementCreation(el, className, idName, content) {
     this.idName = idName;
     this.content = content;
 
+    //reads for an image
     const imageReg = /[\/.](gif|jpg|jpeg|tiff|png)$/i;
 
     const createEl = document.createElement(`${el}`);
@@ -16,13 +20,28 @@ function elementCreation(el, className, idName, content) {
     createEl.classList.add(`${className}`);
     createEl.setAttribute("id", idName);
 
-    if (content.match(imageReg)) {
-        createEl.src = content;
-        createEl.alt = "This is an icon or image";
+    //wrap these in an anchor tag 
+    if (content.match('gitHubIcon')) {
+        createEl.src = gitHubIcon;
+        createEl.alt = "This is the Github logo.";
+        createEl.onclick = function() {
+            window.location.href = 'https://github.com/dxd8201';
+        };
+    } else if (content.match('twitterIcon')) {
+        createEl.src = twitterIcon;
+        createEl.alt = "This is the twitter logo";
+        createEl.onclick = function() {
+            window.location.href = 'https://twitter.com/angusofmu';
+        };
+    } else if (content.match('wizardIcon')) {
+        createEl.src = wizardIcon;
+        createEl.alt = "This is the FRWC icon.";
+        createEl.onclick = function() {
+            window.location.href = 'https://www.forgottenrunes.com/';
+        };
     }
 
     return createEl;
-
 }
 
 //generates a section container 
@@ -71,9 +90,9 @@ const footerMenu = (() => {
     footerTag.classList.add('footer-container');
     sectionElement.appendChild(footerTag);
 
-    footerTag.appendChild(new elementCreation("img", "footer-icon", "footerIcon", "./media/github-mark.png"));
-    footerTag.appendChild(new elementCreation("div", "footer-icon", "footerIcon", "Twitter icon"));
-    footerTag.appendChild(new elementCreation("div", "footer-icon", "footerIcon", "Main rune page icon"));
+    footerTag.appendChild(new elementCreation("img", "footer-icon", "footerIcon", "gitHubIcon"));
+    footerTag.appendChild(new elementCreation("img", "footer-icon", "footerIcon", "twitterIcon"));
+    footerTag.appendChild(new elementCreation("img", "footer-icon", "footerIcon", "wizardIcon"));
 
     return
     
