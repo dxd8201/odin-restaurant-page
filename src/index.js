@@ -41,7 +41,7 @@ function elementCreation(el, className, idName, content) {
         };
     }
 
-    return createEl;
+    return createEl
 }
 
 //generates a section container 
@@ -89,10 +89,16 @@ const footerMenu = (() => {
     const footerTag = document.createElement('footer');
     footerTag.classList.add('footer-container');
     sectionElement.appendChild(footerTag);
+    const anchorOne = new elementCreation("a", "anchor-tag", "anchorTag", "");
+    const anchorTwo = new elementCreation("a", "anchor-tag", "anchorTag", "");
+    const anchorThree = new elementCreation("a", "anchor-tag", "anchorTag", "");
 
-    footerTag.appendChild(new elementCreation("img", "footer-icon", "footerIcon", "gitHubIcon"));
-    footerTag.appendChild(new elementCreation("img", "footer-icon", "footerIcon", "twitterIcon"));
-    footerTag.appendChild(new elementCreation("img", "footer-icon", "footerIcon", "wizardIcon"));
+    footerTag.appendChild(anchorOne);
+    anchorOne.appendChild(new elementCreation("img", "footer-icon", "footerIcon", "gitHubIcon"))
+    footerTag.appendChild(anchorTwo);
+    anchorTwo.appendChild(new elementCreation("img", "footer-icon", "footerIcon", "twitterIcon"))
+    footerTag.appendChild(anchorThree);
+    anchorThree.appendChild(new elementCreation("img", "footer-icon", "footerIcon", "wizardIcon"))
 
     return
     
