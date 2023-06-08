@@ -2,6 +2,7 @@ import './style.css';
 import gitHubIcon from './media/github-mark.png';
 import twitterIcon from './media/twitter-logo-blue.png';
 import wizardIcon from './media/wizard-icon.png';
+import feast from './media/medieval-feast.jpg'
 
 const contentDiv = document.getElementById('content');
 
@@ -18,16 +19,16 @@ function elementCreation(el, className, idName, content) {
     createEl.setAttribute("id", idName);
     
 
-    if (content.match('home')) {
+    if (content === 'home') {
         createEl.href = "#";
         return createEl
-    } else if (content.match('menu')) {
+    } else if (content === 'menu') {
         createEl.href = "#";
         return createEl
-    } else if (content.match('about')) {
+    } else if (content === 'about') {
         createEl.href = "#";
         return createEl
-    } else if (content.match('contact')) {
+    } else if (content === 'contact') {
         createEl.href = "#";
         return createEl
     }
@@ -50,6 +51,9 @@ function elementCreation(el, className, idName, content) {
         if(el.match('a')) {
             createEl.href = 'https://www.forgottenrunes.com/';
         }
+    } else if (content === 'feast') {
+        createEl.src = feast;
+        createEl.alt = "This is a picture of our monthly feast."
     } else {
         createEl.textContent = content;
     }
@@ -100,8 +104,8 @@ const mainContentContainer = (() => {
 
     mainContentDiv.appendChild(new elementCreation("div", "main-content-flex-container", "mainContentFlexContainer", ""));
     const flexContainerListener = document.getElementById("mainContentFlexContainer");
-    flexContainerListener.appendChild(new elementCreation("div", "main-content-flex-item", "mainContentFlexItem", "This is the first flex item"));
-    flexContainerListener.appendChild(new elementCreation("div", "main-content-flex-item", "mainContentFlexItem", "This is the second flex item"));
+    flexContainerListener.appendChild(new elementCreation("p", "main-content-flex-item", "mainContentFlexItem", "WizzyFoo is your one-stop shoppe for magical dishes and arcane beverages. We feature a range of delectable items on our menu that are certified !magic. If you're looking to bring magic to your tastebuds, this is the place to be. Just don't forget to put your rune on the door on your way out."));
+    flexContainerListener.appendChild(new elementCreation("img", "main-content-flex-item", "mainContentFlexItem", "feast"));
 
     return { mainContentDiv }
 })();
