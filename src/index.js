@@ -101,7 +101,6 @@ const mainContentContainer = (() => {
     mainContentDiv.classList.add('main-content-container');
     sectionElement.appendChild(mainContentDiv);
 
-
     mainContentDiv.appendChild(new elementCreation("div", "main-content-flex-container", "mainContentFlexContainer", ""));
     const flexContainerListener = document.getElementById("mainContentFlexContainer");
     flexContainerListener.appendChild(new elementCreation("p", "main-content-flex-item", "mainContentFlexItem", "WizzyFoo is your one-stop shoppe for magical dishes and arcane beverages. We feature a range of delectable items on our menu that are certified !magic. If you're looking to bring magic to your tastebuds, this is the place to be. Just don't forget to put your rune on the door on your way out."));
@@ -129,3 +128,16 @@ const footerMenu = (() => {
     return
     
 })();
+
+//deletes all elements from the main content container
+const deRender = function () {
+    const e = mainContentContainer.mainContentDiv;
+    console.log(e);
+    
+    // for (const element of document.getElementsByTagName('*')) {
+    //   element.remove();
+    // }
+    console.log("deRender ran")
+}
+
+// deRender();
