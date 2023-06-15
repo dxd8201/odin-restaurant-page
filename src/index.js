@@ -3,11 +3,12 @@ import gitHubIcon from './media/github-mark.png';
 import twitterIcon from './media/twitter-logo-blue.png';
 import wizardIcon from './media/wizard-icon.png';
 import feast from './media/medieval-feast.jpg'
+import loadHome from './modules/home.js'
 
 const contentDiv = document.getElementById('content');
 
 //constructor function that builds an HTML element to be appended to something with some text content 
-function elementCreation(el, className, idName, content) {
+export default function elementCreation(el, className, idName, content) {
     this.el = el;
     this.className = className;
     this.idName = idName;
@@ -106,6 +107,8 @@ const mainContentContainer = (() => {
     flexContainerListener.appendChild(new elementCreation("p", "main-content-flex-item", "mainContentFlexItem", "WizzyFoo is your one-stop shoppe for magical dishes and arcane beverages. We feature a range of delectable items on our menu that are certified !magic. If you're looking to bring magic to your tastebuds, this is the place to be. Just don't forget to put your rune on the door on your way out."));
     flexContainerListener.appendChild(new elementCreation("img", "main-content-flex-item", "mainContentFlexItem", "feast"));
 
+    // loadHome();
+
     return { mainContentDiv }
 })();
 
@@ -140,4 +143,4 @@ const deRender = function () {
     console.log("deRender ran")
 }
 
-deRender();
+// deRender();
