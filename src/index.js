@@ -134,10 +134,10 @@ const deRender = function () {
     const e = mainContentContainer.mainContentDiv;
     console.log(e);
     
-    // for (const element of document.getElementsByTagName('*')) {
-    //   element.remove();
-    // }
+    for (const element of e.getElementsByTagName('*')) {
+      element.remove();
+    }
     console.log("deRender ran")
 }
 
-// deRender();
+deRender();
