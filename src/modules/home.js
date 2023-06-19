@@ -1,6 +1,6 @@
 //set up module to generate home page upon page load and home button click
 
-// import index from './src/index.js'
+// import elementCreation from './src/index.js'
 
 // export default function loadHome() {
 //     const mainContentDiv = document.createElement('div');

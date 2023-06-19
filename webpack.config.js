@@ -3,11 +3,11 @@ const path = require('path');
 module.exports = {
     entry: {
       index: './src/index.js',
-      home: './src/modules/home,js'
+      home: './src/modules/home.js',
     },
       
     output: {
-        filename: 'main.js',
+        filename: '[name].main.js',
         path: path.resolve(__dirname, 'dist'),
   },
   devtool: 'inline-source-map',
