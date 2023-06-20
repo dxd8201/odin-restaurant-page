@@ -1,69 +1,18 @@
 import './style.css';
-import gitHubIcon from './media/github-mark.png';
-import twitterIcon from './media/twitter-logo-blue.png';
-import wizardIcon from './media/wizard-icon.png';
-import feast from './media/medieval-feast.jpg'
-import loadHome from './modules/home.js'
+import elementCreation from './modules/function.js';
+import loadHome from './modules/home.js';
+
 
 const contentDiv = document.getElementById('content');
 
-//constructor function that builds an HTML element to be appended to something with some text content 
-export default function elementCreation(el, className, idName, content) {
-    this.el = el;
-    this.className = className;
-    this.idName = idName;
-    this.content = content;
-
-
-    const createEl = document.createElement(`${el}`);
-    createEl.classList.add(`${className}`);
-    createEl.setAttribute("id", idName);
-    
-
-    if (content === 'home') {
-        createEl.href = "#";
-        return createEl
-    } else if (content === 'menu') {
-        createEl.href = "#";
-        return createEl
-    } else if (content === 'about') {
-        createEl.href = "#";
-        return createEl
-    } else if (content === 'contact') {
-        createEl.href = "#";
-        return createEl
-    }
-
-    if (content.match('gitHubIcon')) {
-        createEl.src = gitHubIcon;
-        createEl.alt = "This is the Github logo.";
-        if(el.match('a')) {
-            createEl.href = 'https://github.com/dxd8201';
-        }
-    } else if (content.match('twitterIcon')) {
-        createEl.src = twitterIcon;
-        createEl.alt = "This is the twitter logo";
-        if(el.match('a')) {
-            createEl.href = 'https://twitter.com/angusofmu';
-        }
-    } else if (content.match('wizardIcon')) {
-        createEl.src = wizardIcon;
-        createEl.alt = "This is the FRWC icon.";
-        if(el.match('a')) {
-            createEl.href = 'https://www.forgottenrunes.com/';
-        }
-    } else if (content === 'feast') {
-        createEl.src = feast;
-        createEl.alt = "This is a picture of our monthly feast."
-    } else {
-        createEl.textContent = content;
-    }
-    return createEl
-}
+export default function printMe2() {
+    console.log('I get called from index.js!');
+  }
 
 //generates a section container 
 const sectionElement = (() => {
     const element = document.createElement('section');
+    element.setAttribute('id', 'section');
     contentDiv.appendChild(element);
 
     return element
@@ -98,18 +47,10 @@ const navMenu = (() => {
 
 //Generates a main content div
 const mainContentContainer = (() => {
-    const mainContentDiv = document.createElement('div');
-    mainContentDiv.classList.add('main-content-container');
-    sectionElement.appendChild(mainContentDiv);
+    
+    loadHome();
 
-    mainContentDiv.appendChild(new elementCreation("div", "main-content-flex-container", "mainContentFlexContainer", ""));
-    const flexContainerListener = document.getElementById("mainContentFlexContainer");
-    flexContainerListener.appendChild(new elementCreation("p", "main-content-flex-item", "mainContentFlexItem", "WizzyFoo is your one-stop shoppe for magical dishes and arcane beverages. We feature a range of delectable items on our menu that are certified !magic. If you're looking to bring magic to your tastebuds, this is the place to be. Just don't forget to put your rune on the door on your way out."));
-    flexContainerListener.appendChild(new elementCreation("img", "main-content-flex-item", "mainContentFlexItem", "feast"));
-
-    // loadHome();
-
-    return { mainContentDiv }
+    return 
 })();
 
 //Generates a footer menu
