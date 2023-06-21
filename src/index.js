@@ -1,6 +1,9 @@
 import './style.css';
 import elementCreation from './modules/function.js';
 import loadHome from './modules/home.js';
+import loadAbout from './modules/about';
+import loadMenu from './modules/menu';
+import loadContact from './modules/contact';
 
 
 const contentDiv = document.getElementById('content');
@@ -48,7 +51,10 @@ const navMenu = (() => {
 //Generates a main content div
 const mainContentContainer = (() => {
     
-    loadHome();
+    // loadHome();
+    // loadAbout();
+    // loadMenu();
+    loadContact();
 
     return 
 })();

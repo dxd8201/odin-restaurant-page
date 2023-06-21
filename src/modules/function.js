@@ -1,6 +1,7 @@
 import gitHubIcon from './media/github-mark.png';
 import twitterIcon from './media/twitter-logo-blue.png';
 import wizardIcon from './media/wizard-icon.png';
+import founder from './media/2241-battle-mage-angus-of-mu-nobg.png'
 import feast from './media/medieval-feast.jpg';
 
 export default function elementCreation(el, className, idName, content) {
@@ -47,7 +48,10 @@ export default function elementCreation(el, className, idName, content) {
         }
     } else if (content === 'feast') {
         createEl.src = feast;
-        createEl.alt = "This is a picture of our monthly feast."
+        createEl.alt = "This is a picture of our monthly feast.";
+    } else if (content === 'founder') {
+        createEl.src = founder;
+        createEl.alt = "This is a picture of our founder.";
     } else {
         createEl.textContent = content;
     }
