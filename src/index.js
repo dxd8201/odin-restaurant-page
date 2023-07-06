@@ -45,18 +45,37 @@ const navMenu = (() => {
     aboutAnchor.appendChild(new elementCreation('li', "list-item", "listItem", "About"));
     contactAnchor.appendChild(new elementCreation('li', "list-item", "listItem", "Contact"));
 
-    return { navTag }
+    return { navTag, homeAnchor, menuAnchor, aboutAnchor, contactAnchor }
 })();
 
 //Generates a main content div
 const mainContentContainer = (() => {
     
-    // loadHome();
-    // loadAbout();
-    // loadMenu();
+    navMenu.homeAnchor.addEventListener("click", function() {
+        deRender();
+        loadHome();
+    });
+
+    navMenu.menuAnchor.addEventListener("click", function() {
+        deRender();
+        loadMenu();
+    });
+
+    navMenu.aboutAnchor.addEventListener("click", function() {
+        deRender();
+        loadAbout();
+    });
+    navMenu.contactAnchor.addEventListener("click", function() {
+        deRender();
+        loadContact();
+    });
+
     loadContact();
 
-    return 
+    let mainContentDiv = document.getElementById("mainContentFlexContainer");
+    console.log(mainContentDiv);
+
+    return { mainContentDiv }
 })();
 
 //Generates a footer menu

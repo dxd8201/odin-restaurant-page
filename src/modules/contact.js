@@ -15,6 +15,6 @@ export default function loadContact() {
 
 
 
-    console.log("Load about has ran");
+    console.log("Load contact has ran.");
     return { mainContentDiv }
 }
