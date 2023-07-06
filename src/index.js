@@ -8,10 +8,6 @@ import loadContact from './modules/contact';
 
 const contentDiv = document.getElementById('content');
 
-export default function printMe2() {
-    console.log('I get called from index.js!');
-  }
-
 //generates a section container 
 const sectionElement = (() => {
     const element = document.createElement('section');
@@ -51,6 +47,11 @@ const navMenu = (() => {
 //Generates a main content div
 const mainContentContainer = (() => {
     
+    loadHome();
+
+    const mainContentDiv = document.getElementById("mainContentContainer");
+    console.log(mainContentDiv);
+
     navMenu.homeAnchor.addEventListener("click", function() {
         deRender();
         loadHome();
@@ -64,16 +65,16 @@ const mainContentContainer = (() => {
     navMenu.aboutAnchor.addEventListener("click", function() {
         deRender();
         loadAbout();
+        // const extraContentDiv = document.getElementById("mainContentFlexContainer");
+        // mainContentDiv.appendChild(extraContentDiv);
+
     });
     navMenu.contactAnchor.addEventListener("click", function() {
         deRender();
         loadContact();
     });
 
-    loadContact();
-
-    let mainContentDiv = document.getElementById("mainContentFlexContainer");
-    console.log(mainContentDiv);
+    
 
     return { mainContentDiv }
 })();
@@ -100,13 +101,19 @@ const footerMenu = (() => {
 
 //deletes all elements from the main content container
 const deRender = function () {
-    const e = mainContentContainer.mainContentDiv;
-    console.log(e);
+    // const e = mainContentContainer.mainContentDiv;
+    // console.log(e);
+   
     
-    for (const element of e.getElementsByTagName('*')) {
-      element.remove();
+    // for (const element of e.getElementsByTagName('*')) {
+    //     console.log(element);
+    //     element.remove();
+    // }
+
+    let element = mainContentContainer.mainContentDiv.getElementsByTagName("*"), index;
+
+    for (index = element.length - 1; index >= 0; index--) {
+        element[index].parentNode.removeChild(element[index]);
     }
     console.log("deRender ran")
 }
-
-// deRender();

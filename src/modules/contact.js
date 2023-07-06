@@ -6,6 +6,7 @@ export default function loadContact() {
     //This code needs to run in each module
     const mainContentDiv = document.createElement('div');
     mainContentDiv.classList.add('main-content-container');
+    mainContentDiv.setAttribute("id", "mainContentContainer");
     index.appendChild(mainContentDiv);
 
     mainContentDiv.appendChild(new elementCreation("div", "main-content-flex-container", "mainContentFlexContainer", ""));
