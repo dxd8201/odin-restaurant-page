@@ -47,10 +47,16 @@ const navMenu = (() => {
 //Generates a main content div
 const mainContentContainer = (() => {
     
-    loadHome();
+    
+    const mainContentDiv = document.createElement('div');
+    mainContentDiv.classList.add('main-content-container');
+    mainContentDiv.setAttribute("id", "mainContentContainer");
+    sectionElement.appendChild(mainContentDiv);
+    
+    
 
-    const mainContentDiv = document.getElementById("mainContentContainer");
     console.log(mainContentDiv);
+    loadHome();
 
     navMenu.homeAnchor.addEventListener("click", function() {
         deRender();

@@ -1,13 +1,9 @@
 import elementCreation from './function.js';
 
 export default function loadMenu() {
-    const index = document.getElementById('section');
 
-    //This code needs to run in each module
-    const mainContentDiv = document.createElement('div');
-    mainContentDiv.classList.add('main-content-container');
-    mainContentDiv.setAttribute("id", "mainContentContainer");
-    index.appendChild(mainContentDiv);
+    const mainContentDiv = document.getElementById("mainContentContainer");
+    console.log(mainContentDiv);
 
     mainContentDiv.appendChild(new elementCreation("div", "main-content-menu-flex-container", "mainContentMenuFlexContainer", ""));
     const flexContainerListener = document.getElementById("mainContentMenuFlexContainer");
